@@ -14,4 +14,4 @@ Todo App using only JAVASCRIPT and REACT.
 
 --- 
 
-### Made with :red_heart: in Berlin by @Mirunaen
+### Made with :heart: in Berlin by @Mirunaen
