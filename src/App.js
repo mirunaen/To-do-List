@@ -24,25 +24,44 @@ function App() {
   // use effect will be called 
   //when the second argument will get updated(in this case, todos)
   //so setTodos will be called and after that useEffect
+  //and update the local storage values 
   useEffect(() => {
     localStorage.setItem('todos', todos)
   }, [todos])
   return (
-    <div>
-      <p>Todo List </p>
-      <input value={inputValue} onChange={
-        (event) => {
-          setInputValue(event.target.value)
-        }
-      }></input>
-      <button onClick={(e) => {
-        setTodos([...todos, inputValue])
-        //clean up the field
-        setInputValue("")
-      }}>Add Todo</button>
-      {todos.map(todo => <Todo todo={todo} removeTodo={removeTodo}></Todo>)}
+    <div id="app">
+      <h1 className="todos-title">To-do List</h1>
+      <div className="input-row">
+        <input
+          className="add-todo-input"
+          value={inputValue}
+          onChange={(event) => {
+            setInputValue(event.target.value);
+          }}
+        ></input>
+        <button
+          className="submit-button"
+          onClick={(e) => {
+            if (inputValue && inputValue.length > 0) {
+              // add todo
+              setTodos([...todos, inputValue]);
+              // clean up the field
+              setInputValue("");
+            }
+          }}
+        >
+          Add Todo
+        </button>
+      </div>
+      <div className="todo-container">
+        {todos.map((todo) => (
+          <Todo todo={todo} removeTodo={removeTodo} />
+        ))}
+      </div>
+      <p>
+        You have <strong>{todos.length}</strong> tasks in progress
+      </p>
     </div>
-  )
+  );
 }
-
 export default App;
