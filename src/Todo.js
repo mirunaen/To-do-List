@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React from "react"
 
-export default class Todo extends Component {
-    render() {
-        return (
-            <div>
 
-            </div>
-        )
-    }
+export default function Todo(props) {
+    return (
+        <div className="todos">
+            {props.todo}
+        </div>
+    )
 }
