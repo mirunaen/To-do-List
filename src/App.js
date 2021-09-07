@@ -62,6 +62,7 @@ function App() {
         You have <strong>{todos.length}</strong> tasks in progress
       </p>
     </div>
+
   );
 }
 export default App;
